@@ -232,12 +232,14 @@ h6 {
 
 @media (max-width: 768px) {
   .home-intro-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: initial;
+    transform: none;
+    text-align: center; /* Center the text horizontally */
+    margin-top: 10px; /* Adjust the margin-top value as needed */
   }
 }
+
 
 /*--------------------------------------------------------------
 # Scroll Down Arrow
