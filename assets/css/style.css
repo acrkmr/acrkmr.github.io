@@ -199,7 +199,7 @@ h6 {
   color: #149ddd;
 }
 
-/* Mobile Navigation */
+ /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -222,22 +222,14 @@ h6 {
   margin-left: auto; /* Add this line to align the button to the right */
 }
 
+
+
 .mobile-nav-active {
   overflow: hidden;
 }
 
 .mobile-nav-active #header {
   left: 0;
-}
-
-@media (max-width: 768px) {
-  .home-intro-text {
-    position: static;
-    transform: none;
-    text-align: center;
-    margin: 10px auto; /* Adjust the margin as needed */
-    top: initial !important; /* Add this line to override any existing top property */
-  }
 }
 
 /*--------------------------------------------------------------
@@ -354,6 +346,27 @@ section {
   padding: 60px 0;
   overflow: hidden;
 }
+
+.pill-tab {
+  display: inline-block;
+  background-color: #149ddd;
+  padding: 8px 16px;
+  border-radius: 16px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.pill-tab a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pill-tab:hover {
+  background-color: #1184BA; /* Slightly dimmed background color */
+  color: #fff;
+}
+
+
 
 .section-bg {
   background: #f5f8fd;
