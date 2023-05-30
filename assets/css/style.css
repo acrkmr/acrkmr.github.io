@@ -222,6 +222,9 @@ h6 {
   margin-left: auto; /* Add this line to align the button to the right */
 }
 
+.typed {
+  white-space: nowrap;
+}
 
 .mobile-nav-active {
   overflow: hidden;
