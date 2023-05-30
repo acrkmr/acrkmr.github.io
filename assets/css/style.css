@@ -232,12 +232,12 @@ h6 {
 
 @media (max-width: 768px) {
   .home-intro-text {
-    position: relative;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
-
 
 /*--------------------------------------------------------------
 # Scroll Down Arrow
