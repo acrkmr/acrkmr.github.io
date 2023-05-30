@@ -232,14 +232,13 @@ h6 {
 
 @media (max-width: 768px) {
   .home-intro-text {
-    position: static !important;
-    transform: none !important;
+    position: static;
+    transform: none;
     text-align: center;
     margin: 10px auto; /* Adjust the margin as needed */
+    top: initial !important; /* Add this line to override any existing top property */
   }
 }
-
-
 
 /*--------------------------------------------------------------
 # Scroll Down Arrow
