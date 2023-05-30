@@ -232,13 +232,13 @@ h6 {
 
 @media (max-width: 768px) {
   .home-intro-text {
-    position: relative;
-    top: initial;
+    position: static;
     transform: none;
-    text-align: center; /* Center the text horizontally */
-    margin-top: 10px; /* Adjust the margin-top value as needed */
+    text-align: center;
+    margin: 10px auto; /* Adjust the margin as needed */
   }
 }
+
 
 
 /*--------------------------------------------------------------
