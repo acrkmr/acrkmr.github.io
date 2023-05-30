@@ -230,6 +230,15 @@ h6 {
   left: 0;
 }
 
+@media (max-width: 768px) {
+  .home-intro-text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Scroll Down Arrow
 --------------------------------------------------------------*/
