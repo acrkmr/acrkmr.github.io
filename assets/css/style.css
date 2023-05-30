@@ -232,8 +232,8 @@ h6 {
 
 @media (max-width: 768px) {
   .home-intro-text {
-    position: static;
-    transform: none;
+    position: static !important;
+    transform: none !important;
     text-align: center;
     margin: 10px auto; /* Adjust the margin as needed */
   }
