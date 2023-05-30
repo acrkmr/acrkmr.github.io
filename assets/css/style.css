@@ -232,6 +232,28 @@ h6 {
   left: 0;
 }
 
+.pill-tab {
+  display: inline-block;
+  background-color: #149ddd;
+  padding: 8px 16px;
+  border-radius: 16px;
+}
+
+.pill-tab a {
+  text-decoration: none;
+  color: #fff;
+  display: block; /* Add this line to make the links fill the pill tabs */
+  text-align: center; /* Add this line to center the text within the pill tabs */
+}
+
+@media (max-width: 768px) {
+  .pill-tab {
+    display: block;
+    margin-bottom: 10px; /* Add some spacing between the pill tabs */
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Scroll Down Arrow
 --------------------------------------------------------------*/
