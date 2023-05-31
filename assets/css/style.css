@@ -1009,7 +1009,9 @@ section {
   transition: 0.3s;
   margin-right: 10px;
 }
-
+.social-links.mobile-only a {
+  margin-right: 1.5rem; /* Adjust the margin-right value to increase or decrease the space */
+}
 .contact .info .social-links a:hover {
   background: #149ddd;
   color: #fff;
