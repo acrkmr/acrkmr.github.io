@@ -1,4 +1,11 @@
-(function() {
+/**
+ * Template Name: iPortfolio
+ * Updated: Mar 10 2023 with Bootstrap v5.2.3
+ * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+(function () {
   "use strict";
 
   /**
@@ -11,7 +18,7 @@
     } else {
       return document.querySelector(el);
     }
-  }
+  };
 
   /**
    * Easy event listener function
@@ -20,38 +27,41 @@
     let selectEl = select(el, all);
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener));
+        selectEl.forEach((e) => e.addEventListener(type, listener));
       } else {
         selectEl.addEventListener(type, listener);
       }
     }
-  }
+  };
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener);
-  }
+    el.addEventListener("scroll", listener);
+  };
 
   /**
    * Navbar links active state on scroll
    */
-  let navbarlinks = select('#navbar .scrollto', true);
+  let navbarlinks = select("#navbar .scrollto", true);
   const navbarlinksActive = () => {
     let position = window.scrollY + 200;
-    navbarlinks.forEach(navbarlink => {
+    navbarlinks.forEach((navbarlink) => {
       if (!navbarlink.hash) return;
       let section = select(navbarlink.hash);
       if (!section) return;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active');
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        navbarlink.classList.add("active");
       } else {
-        navbarlink.classList.remove('active');
+        navbarlink.classList.remove("active");
       }
     });
-  }
-  window.addEventListener('load', navbarlinksActive);
+  };
+  window.addEventListener("load", navbarlinksActive);
   onscroll(document, navbarlinksActive);
 
   /**
@@ -61,61 +71,48 @@
     let elementPos = select(el).offsetTop;
     window.scrollTo({
       top: elementPos,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
-  }
+  };
 
   /**
    * Back to top button
    */
-  let backtotop = select('.back-to-top');
+  let backtotop = select(".back-to-top");
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
-        backtotop.classList.add('active');
+        backtotop.classList.add("active");
       } else {
-        backtotop.classList.remove('active');
+        backtotop.classList.remove("active");
       }
-    }
-    window.addEventListener('load', toggleBacktotop);
+    };
+    window.addEventListener("load", toggleBacktotop);
     onscroll(document, toggleBacktotop);
   }
 
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active');
-    this.classList.toggle('bi-list');
-    this.classList.toggle('bi-x');
-
-    // Toggle the visibility of the social links toolbar on the index page
-    const socialLinks = select('.social-links-2');
-    const isHomePage = window.location.pathname === "/";
-    if (isHomePage) {
-      if (socialLinks.style.opacity === "0") {
-        setTimeout(() => {
-          socialLinks.style.opacity = "1";
-        }, 100);
-      } else {
-        socialLinks.style.opacity = "0";
-      }
-    }
+  on("click", ".mobile-nav-toggle", function (e) {
+    select("body").classList.toggle("mobile-nav-active");
+    this.classList.toggle("bi-list");
+    this.classList.toggle("bi-x");
   });
 
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on("click", ".scrollto", function (e) {
     if (select(this.hash)) {
       e.preventDefault();
 
-      let body = select('body');
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active');
-        let navbarToggle = select('.mobile-nav-toggle');
-        navbarToggle.classList.toggle('bi-list');
-        navbarToggle.classList.toggle('bi-x');
+      let body = select("body");
+      if (body.classList.contains("mobile-nav-active")) {
+        body.classList.remove("mobile-nav-active");
+        let navbarToggle = select(".mobile-nav-toggle");
+        navbarToggle.classList.toggle("bi-list");
+        navbarToggle.classList.toggle("bi-x");
       }
       scrollto(this.hash);
     }
@@ -124,7 +121,7 @@
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
         scrollto(window.location.hash);
@@ -135,59 +132,59 @@
   /**
    * Hero type effect
    */
-  const typed = select('.typed');
+  const typed = select(".typed");
   if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
+    let typed_strings = typed.getAttribute("data-typed-items");
+    typed_strings = typed_strings.split(",");
+    new Typed(".typed", {
       strings: typed_strings,
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
-      backDelay: 2000
+      backDelay: 2000,
     });
   }
 
   /**
    * Skills animation
    */
-  let skilsContent = select('.skills-content');
+  let skilsContent = select(".skills-content");
   if (skilsContent) {
     new Waypoint({
       element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
+      offset: "80%",
+      handler: function (direction) {
+        let progress = select(".progress .progress-bar", true);
         progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
+          el.style.width = el.getAttribute("aria-valuenow") + "%";
         });
-      }
+      },
     });
   }
 
   /**
    * Porfolio isotope and filter
    */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
+  window.addEventListener("load", () => {
+    let portfolioContainer = select(".portfolio-container");
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+        itemSelector: ".portfolio-item",
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+      let portfolioFilters = select("#portfolio-flters li", true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on("click", "#portfolio-flters li", function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
+        portfolioFilters.forEach(function (el) {
+          el.classList.remove("filter-active");
         });
-        this.classList.add('filter-active');
+        this.classList.add("filter-active");
 
         portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+          filter: this.getAttribute("data-filter"),
         });
-        portfolioIsotope.on('arrangeComplete', function() {
+        portfolioIsotope.on("arrangeComplete", function () {
           AOS.refresh();
         });
       }, true);
@@ -195,77 +192,123 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
+    selector: ".portfolio-lightbox",
   });
 
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
+  new Swiper(".portfolio-details-slider", {
     speed: 400,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  // Step 1: Get the mobile navigation toggle button and the social links toolbar
-  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-  const socialLinks = document.querySelector('.social-links-2');
-
-  let isSocialLinksVisible = true;
-
-  // Step 2: Add event listener to the mobile navigation toggle button
-  mobileNavToggle.addEventListener('click', () => {
-    // Step 3: Toggle the visibility of the social links toolbar by adding/removing a class
-    if (isSocialLinksVisible) {
-      socialLinks.style.opacity = 0; // Hide the toolbar
-    } else {
-      setTimeout(() => {
-        socialLinks.style.opacity = 1; // Show the toolbar after a delay of 0.1 second
-      }, 100);
-    }
-
-    isSocialLinksVisible = !isSocialLinksVisible;
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
   });
 
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
+  new Swiper(".testimonials-slider", {
     speed: 600,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
   });
 
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     AOS.init({
       duration: 1000,
-      easing: 'ease-in-out',
+      easing: "ease-in-out",
       once: true,
-      mirror: false
+      mirror: false,
     });
   });
 
+  /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
+
+  // Step 1: Get the mobile navigation toggle button and the social links toolbar
+  const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+  const socialLinks = document.querySelector(".social-links-2");
+
+  let isSocialLinksVisible = true;
+
+  // Step 2: Define a function to toggle the social links toolbar visibility
+  const toggleSocialLinks = () => {
+    if (isSocialLinksVisible) {
+      socialLinks.style.display = "none";
+    } else {
+      socialLinks.style.display = "block";
+    }
+    isSocialLinksVisible = !isSocialLinksVisible;
+  };
+
+  // Step 3: Add an event listener to the mobile navigation toggle button
+  mobileNavToggle.addEventListener("click", toggleSocialLinks);
+
+  // Step 4: Hide the social links toolbar on all pages except the home page
+  const currentPage = window.location.pathname;
+  if (currentPage !== "/" && socialLinks) {
+    socialLinks.style.display = "none";
+  }
+
+  // Step 5: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
+  if (currentPage === "/" && socialLinks) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        socialLinks.style.display = "none";
+      } else {
+        socialLinks.style.display = "block";
+      }
+    });
+  }
+
+  // Step 6: Remove the toolbar completely from all pages except the home page
+  const socialLinksParent = socialLinks ? socialLinks.parentElement : null;
+  if (socialLinksParent && currentPage !== "/") {
+    socialLinksParent.removeChild(socialLinks);
+  }
+
+  // Step 7: Add a delay of 0.1 second when opening/closing the mobile navigation toggle button
+  mobileNavToggle.addEventListener("click", () => {
+    setTimeout(() => {
+      if (isSocialLinksVisible) {
+        socialLinks.style.display = "block";
+      }
+    }, 100);
+  });
 })();
