@@ -278,60 +278,6 @@
     socialLinks.style.display = "none";
   }
 
-
-  (function () {
-  "use strict";
-
-  /**
-   * Easy selector helper function
-   */
-  const select = (el) => document.querySelector(el);
-  const selectAll = (el) => document.querySelectorAll(el);
-
-  /**
-   * Mobile navigation toggle
-   */
-  const mobileNavToggle = select(".mobile-nav-toggle");
-  const navMenu = select(".nav-menu");
-
-  if (mobileNavToggle) {
-    mobileNavToggle.addEventListener("click", () => {
-      mobileNavToggle.classList.toggle("active");
-      navMenu.classList.toggle("active");
-      document.body.classList.toggle("overflow-hidden");
-      if (navMenu.classList.contains("active")) {
-        // Hide .social-links-2 when the toggle button is opened
-        const socialLinks = select(".social-links-2");
-        if (socialLinks) {
-          socialLinks.style.opacity = 0;
-          socialLinks.style.pointerEvents = "none";
-        }
-      } else {
-        // Show .social-links-2 after 0.3 seconds when the toggle button is closed
-        const socialLinks = select(".social-links-2");
-        if (socialLinks) {
-          setTimeout(() => {
-            socialLinks.style.opacity = 1;
-            socialLinks.style.pointerEvents = "auto";
-          }, 300);
-        }
-      }
-    });
-  }
-
-  /**
-   * On page load events
-   */
-  window.addEventListener("load", () => {
-    // Hide the .social-links-2 toolbar on all pages except the home page
-    const socialLinks = select(".social-links-2");
-    if (window.location.pathname !== "/" && socialLinks) {
-      socialLinks.style.display = "none";
-    }
-  });
-})();
-
-
   // Step 5: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
   if (window.location.pathname === "/" && socialLinks) {
     window.addEventListener("scroll", () => {
