@@ -213,6 +213,18 @@
     }
   });
 
+ // Step 1: Get the mobile navigation toggle button and the social links toolbar
+const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+const socialLinks = document.querySelector('.social-links-2');
+
+// Step 2: Add event listener to the mobile navigation toggle button
+mobileNavToggle.addEventListener('click', () => {
+  // Step 3: Toggle the display of the social links toolbar
+  socialLinks.style.display = socialLinks.style.display === 'none' ? 'flex' : 'none';
+});
+
+
+
   /**
    * Testimonials slider
    */
