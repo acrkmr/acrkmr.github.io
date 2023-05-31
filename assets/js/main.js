@@ -1,4 +1,11 @@
-(function() {
+/**
+ * Template Name: iPortfolio
+ * Updated: Mar 10 2023 with Bootstrap v5.2.3
+ * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+(function () {
   "use strict";
 
   /**
@@ -91,17 +98,6 @@
     select("body").classList.toggle("mobile-nav-active");
     this.classList.toggle("bi-list");
     this.classList.toggle("bi-x");
-
-    const socialLinks = select(".social-links-2");
-    if (socialLinks) {
-      setTimeout(() => {
-        if (this.classList.contains("bi-x")) {
-          socialLinks.style.opacity = 0;
-        } else {
-          socialLinks.style.opacity = 1;
-        }
-      }, 100);
-    }
   });
 
   /**
@@ -152,10 +148,10 @@
   /**
    * Skills animation
    */
-  let skillsContent = select(".skills-content");
-  if (skillsContent) {
+  let skilsContent = select(".skills-content");
+  if (skilsContent) {
     new Waypoint({
-      element: skillsContent,
+      element: skilsContent,
       offset: "80%",
       handler: function (direction) {
         let progress = select(".progress .progress-bar", true);
@@ -240,6 +236,7 @@
         slidesPerView: 1,
         spaceBetween: 20,
       },
+
       1200: {
         slidesPerView: 3,
         spaceBetween: 20,
@@ -263,4 +260,33 @@
    * Initiate Pure Counter
    */
   new PureCounter();
+
+  // Step 1: Get the mobile navigation toggle button and the social links toolbar
+  const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+  const socialLinks = document.querySelector(".social-links-2");
+
+  // Step 2: Define a function to toggle the social links toolbar
+  const toggleSocialLinks = () => {
+    socialLinks.classList.toggle("social-links-2-visible");
+  };
+
+  // Step 3: Add a click event listener to the mobile navigation toggle button
+  mobileNavToggle.addEventListener("click", toggleSocialLinks);
+
+  // Step 4: Hide the social links toolbar on all pages except the home page
+  if (window.location.pathname !== "/" && socialLinks) {
+    socialLinks.style.display = "none";
+  }
+
+  // Step 5: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
+  if (window.location.pathname === "/" && socialLinks) {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 0) {
+        socialLinks.style.opacity = 0;
+      } else {
+        socialLinks.style.opacity = 1;
+      }
+    });
+  }
 })();
+
