@@ -44,8 +44,8 @@ h6 {
   bottom: 15px;
   z-index: 996;
   background: #149ddd;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50px;
   transition: all 0.4s;
 }
