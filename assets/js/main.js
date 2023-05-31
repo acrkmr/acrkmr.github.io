@@ -213,15 +213,30 @@
     }
   });
 
- // Step 1: Get the mobile navigation toggle button and the social links toolbar
+
+// Step 1: Get the mobile navigation toggle button and the social links toolbar
 const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
 const socialLinks = document.querySelector('.social-links-2');
+
+let isSocialLinksVisible = true;
 
 // Step 2: Add event listener to the mobile navigation toggle button
 mobileNavToggle.addEventListener('click', () => {
   // Step 3: Toggle the display of the social links toolbar
-  socialLinks.style.display = socialLinks.style.display === 'none' ? 'flex' : 'none';
+  if (isSocialLinksVisible) {
+    socialLinks.style.display = 'none';
+  } else {
+    setTimeout(() => {
+      socialLinks.style.display = 'flex';
+    }, 100); // Adjust the delay time as desired (in milliseconds)
+  }
+
+  isSocialLinksVisible = !isSocialLinksVisible;
 });
+
+
+
+
 
 
 
