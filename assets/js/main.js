@@ -288,7 +288,7 @@ mobileNavToggle.addEventListener("click", () => {
   } else {
     setTimeout(() => {
       socialLinks.style.opacity = 1; // Show the toolbar after a delay of 1 second
-    }, 1000); // Adjust the delay time as desired (in milliseconds)
+    }, 300); // Adjust the delay time as desired (in milliseconds)
   }
   
   isSocialLinksVisible = !isSocialLinksVisible;
