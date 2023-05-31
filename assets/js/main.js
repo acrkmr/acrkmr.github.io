@@ -222,17 +222,20 @@ let isSocialLinksVisible = true;
 
 // Step 2: Add event listener to the mobile navigation toggle button
 mobileNavToggle.addEventListener('click', () => {
-  // Step 3: Toggle the display of the social links toolbar
+  // Step 3: Toggle the visibility of the social links toolbar by adding/removing a class
   if (isSocialLinksVisible) {
-    socialLinks.style.display = 'none';
+    socialLinks.style.opacity = 0; // Hide the toolbar
   } else {
     setTimeout(() => {
-      socialLinks.style.display = 'flex';
+      socialLinks.style.opacity = 1; // Show the toolbar after a delay of 1 second
     }, 100); // Adjust the delay time as desired (in milliseconds)
   }
 
   isSocialLinksVisible = !isSocialLinksVisible;
 });
+
+
+
 
 
 
