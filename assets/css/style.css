@@ -44,8 +44,8 @@ h6 {
   bottom: 15px;
   z-index: 996;
   background: #149ddd;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50px;
   transition: all 0.4s;
 }
@@ -121,19 +121,30 @@ h6 {
   transition: 0.3s;
 }
 
-/* Display the social links div only on mobile devices */
-@media (max-width: 767px) {
-  .social-links {
-    display: block;
-  }
-}
-
-/* Hide the social links div on desktop screens */
+/* Hide the .social-links-2 toolbar on desktop screens */
 @media (min-width: 768px) {
-  .social-links {
+  .social-links-2 {
     display: none;
   }
 }
+
+/* Position the .social-links-2 toolbar on mobile screens */
+@media (max-width: 767px) {
+  .social-links-2 {
+    position: fixed;
+    top: 1.5%;
+    right: 15%;
+    z-index: 9999;
+    
+  }
+  
+  .social-links-2 a {
+    margin-left: 20px; /* Adjust the margin between each social link as needed */
+  }
+}
+
+
+
 
 
 #header .profile .social-links a:hover {
@@ -214,11 +225,11 @@ h6 {
   color: #149ddd;
 }
 
-/* Mobile Navigation */
+ /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
-  top: 3px;
   right: 15px;
+  top: 3px;
   z-index: 9998;
   border: 0;
   font-size: 24px;
@@ -236,7 +247,6 @@ h6 {
   cursor: pointer;
   margin-left: auto; /* Add this line to align the button to the right */
 }
-
 
 
 
@@ -1009,9 +1019,7 @@ section {
   transition: 0.3s;
   margin-right: 10px;
 }
-.social-links.mobile-only a {
-  margin-right: 1.5rem; /* Adjust the margin-right value to increase or decrease the space */
-}
+
 .contact .info .social-links a:hover {
   background: #149ddd;
   color: #fff;
