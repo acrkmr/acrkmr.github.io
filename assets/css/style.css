@@ -135,12 +135,12 @@ h6 {
   .social-links-2 {
     position: fixed;
     top: 2%;
-    right: 15%;
+    right: 13%;
     z-index: 9999;
   }
 
   .social-links-2 a {
-    margin-right: 25px; /* Increase the margin to create more distance between icons */
+    margin-right: 22px; /* Increase the margin to create more distance between icons */
   }
 }
 
