@@ -263,50 +263,51 @@
   
   
 
-// Step 1: Get the mobile navigation toggle button and the social links toolbar
-const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
-const socialLinks = document.querySelector("#socialLinks");
+(function () {
+  "use strict";
 
-let isSocialLinksVisible = true;
+  // Step 1: Get the mobile navigation toggle button and the social links toolbar
+  const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+  const socialLinks = document.querySelector(".social-links-2");
 
-// Step 2: Define a function to toggle the social links toolbar
-const toggleSocialLinks = () => {
-  socialLinks.classList.toggle("social-links-2-visible");
-};
+  let isSocialLinksVisible = true;
 
-// Step 3: Add a click event listener to the mobile navigation toggle button
-mobileNavToggle.addEventListener("click", () => {
-  // Step 4: Toggle the visibility of the social links toolbar by adding/removing a class
-  toggleSocialLinks();
+  // Step 2: Define a function to toggle the social links toolbar
+  const toggleSocialLinks = () => {
+    socialLinks.classList.toggle("social-links-2-visible");
+  };
 
-  // Step 5: Toggle the visibility of the social links toolbar by changing its opacity
-  if (isSocialLinksVisible) {
-    socialLinks.style.opacity = 0; // Hide the toolbar
-  } else {
-    setTimeout(() => {
-      socialLinks.style.opacity = 1; // Show the toolbar after a delay of 1 second
-    }, 1000); // Adjust the delay time as desired (in milliseconds)
+  // Step 3: Add a click event listener to the mobile navigation toggle button
+  mobileNavToggle.addEventListener("click", () => {
+    // Step 4: Toggle the visibility of the social links toolbar by adding/removing a class
+    toggleSocialLinks();
+
+    // Step 5: Toggle the visibility of the social links toolbar by changing its opacity
+    if (isSocialLinksVisible) {
+      socialLinks.style.opacity = 0; // Hide the toolbar
+    } else {
+      setTimeout(() => {
+        socialLinks.style.opacity = 1; // Show the toolbar after a delay of 1 second
+      }, 1000); // Adjust the delay time as desired (in milliseconds)
+    }
+
+    isSocialLinksVisible = !isSocialLinksVisible;
+  });
+
+  // Step 6: Hide the social links toolbar on all pages except the home page
+  if (window.location.pathname !== "/" && socialLinks) {
+    socialLinks.style.display = "none";
   }
 
-  isSocialLinksVisible = !isSocialLinksVisible;
-});
-
-// Step 6: Hide the social links toolbar on all pages except the home page
-if (window.location.pathname !== "/" && socialLinks) {
-  socialLinks.style.display = "none";
-}
-
-// Step 7: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
-if (window.location.pathname === "/" && socialLinks) {
-  window.addEventListener("scroll", () => {
-    if (!isSocialLinksVisible) {
-      socialLinks.style.opacity = 0;
-    }
-  });
-}
-
-
-
-
-
+  // Step 7: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
+  if (window.location.pathname === "/" && socialLinks) {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 0) {
+        socialLinks.style.opacity = 0;
+      } else {
+        socialLinks.style.opacity = 1;
+      }
+    });
+  }
 })();
+
