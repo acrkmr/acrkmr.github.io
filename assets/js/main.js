@@ -278,7 +278,7 @@ const toggleSocialLinks = () => {
 mobileNavToggle.addEventListener("click", () => {
   // Step 4: Toggle the visibility of the social links toolbar by adding/removing a class
   toggleSocialLinks();
-  
+
   // Step 5: Toggle the visibility of the social links toolbar by changing its opacity
   if (isSocialLinksVisible) {
     socialLinks.style.opacity = 0; // Hide the toolbar
@@ -287,7 +287,7 @@ mobileNavToggle.addEventListener("click", () => {
       socialLinks.style.opacity = 1; // Show the toolbar after a delay of 1 second
     }, 1000); // Adjust the delay time as desired (in milliseconds)
   }
-  
+
   isSocialLinksVisible = !isSocialLinksVisible;
 });
 
@@ -298,19 +298,13 @@ if (window.location.pathname !== "/" && socialLinks) {
 
 // Step 7: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
 if (window.location.pathname === "/" && socialLinks) {
-  // Check the initial scroll position on page load
-  if (window.pageYOffset > 0) {
-    socialLinks.style.opacity = 0;
-  }
-
   window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 0) {
+    if (!isSocialLinksVisible) {
       socialLinks.style.opacity = 0;
-    } else {
-      socialLinks.style.opacity = 1;
     }
   });
 }
+
 
 
 })();
