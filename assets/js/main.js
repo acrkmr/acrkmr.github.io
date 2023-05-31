@@ -265,7 +265,7 @@
 
 // Step 1: Get the mobile navigation toggle button and the social links toolbar
 const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
-const socialLinks = document.querySelector(".social-links-2");
+const socialLinks = document.querySelector("#socialLinks");
 
 let isSocialLinksVisible = true;
 
@@ -304,6 +304,7 @@ if (window.location.pathname === "/" && socialLinks) {
     }
   });
 }
+
 
 
 
