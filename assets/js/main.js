@@ -277,10 +277,7 @@ const toggleSocialLinks = () => {
 // Step 3: Add a click event listener to the mobile navigation toggle button
 mobileNavToggle.addEventListener("click", () => {
   // Step 4: Toggle the visibility of the social links toolbar by adding/removing a class
-  if (window.location.pathname === "/") {
-    // Only hide the toolbar on the homepage
-    toggleSocialLinks();
-  }
+  toggleSocialLinks();
   
   // Step 5: Toggle the visibility of the social links toolbar by changing its opacity
   if (isSocialLinksVisible) {
@@ -288,7 +285,7 @@ mobileNavToggle.addEventListener("click", () => {
   } else {
     setTimeout(() => {
       socialLinks.style.opacity = 1; // Show the toolbar after a delay of 1 second
-    }, 100); // Adjust the delay time as desired (in milliseconds)
+    }, 1000); // Adjust the delay time as desired (in milliseconds)
   }
   
   isSocialLinksVisible = !isSocialLinksVisible;
@@ -301,6 +298,11 @@ if (window.location.pathname !== "/" && socialLinks) {
 
 // Step 7: Hide the toolbar when scrolling down on the home page (anywhere other than the index)
 if (window.location.pathname === "/" && socialLinks) {
+  // Check the initial scroll position on page load
+  if (window.pageYOffset > 0) {
+    socialLinks.style.opacity = 0;
+  }
+
   window.addEventListener("scroll", () => {
     if (window.pageYOffset > 0) {
       socialLinks.style.opacity = 0;
