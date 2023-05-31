@@ -272,10 +272,7 @@ const toggleSocialLinks = () => {
 
 // Step 3: Add a click event listener to the mobile navigation toggle button
 mobileNavToggle.addEventListener("click", () => {
-  if (window.location.pathname === "/") {
-    // Only hide the toolbar on the homepage
-    toggleSocialLinks();
-  }
+  toggleSocialLinks();
 });
 
 // Step 4: Hide the social links toolbar on all pages except the home page
@@ -293,5 +290,6 @@ if (window.location.pathname === "/" && socialLinks) {
     }
   });
 }
+
   
 })();
