@@ -261,7 +261,7 @@
    */
   new PureCounter();
 
-  // Step 1: Get the mobile navigation toggle button and the social links toolbar
+// Step 1: Get the mobile navigation toggle button and the social links toolbar
 const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
 const socialLinks = document.querySelector(".social-links-2");
 
@@ -273,9 +273,7 @@ const toggleSocialLinks = () => {
 // Step 3: Add a click event listener to the mobile navigation toggle button
 mobileNavToggle.addEventListener("click", () => {
   if (window.location.pathname === "/") {
-    // Only apply delay on the homepage
-    setTimeout(toggleSocialLinks, 300);
-  } else {
+    // Only hide the toolbar on the homepage
     toggleSocialLinks();
   }
 });
@@ -297,4 +295,3 @@ if (window.location.pathname === "/" && socialLinks) {
 }
   
 })();
-
