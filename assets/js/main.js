@@ -261,19 +261,7 @@
    */
   new PureCounter();
 
-  $(document).ready(function() {
-  $(".toggle-button").click(function() {
-    if ($(this).hasClass("active")) {
-      $(".social-links-2").hide();
-      $(this).removeClass("active");
-    } else {
-      $(".social-links-2").show();
-      setTimeout(function() {
-        $(".toggle-button").addClass("active");
-      }, 300);
-    }
-  });
-});
+  
 
 
 
