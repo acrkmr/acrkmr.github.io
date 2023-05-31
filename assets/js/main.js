@@ -261,6 +261,23 @@
    */
   new PureCounter();
 
+  $(document).ready(function() {
+  $(".toggle-button").click(function() {
+    if ($(this).hasClass("active")) {
+      $(".social-links-2").hide();
+      $(this).removeClass("active");
+    } else {
+      $(".social-links-2").show();
+      setTimeout(function() {
+        $(".toggle-button").addClass("active");
+      }, 300);
+    }
+  });
+});
+
+
+
+
   // Step 1: Get the mobile navigation toggle button and the social links toolbar
   const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
   const socialLinks = document.querySelector(".social-links-2");
