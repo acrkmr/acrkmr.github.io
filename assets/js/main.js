@@ -1,4 +1,4 @@
-/**
+                                                                                                                                                                                                                                                                                                                /**
  * Template Name: iPortfolio
  * Updated: Mar 10 2023 with Bootstrap v5.2.3
  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -260,6 +260,8 @@
    * Initiate Pure Counter
    */
   new PureCounter();
+  
+  
 
 // Step 1: Get the mobile navigation toggle button and the social links toolbar
 const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
@@ -272,7 +274,10 @@ const toggleSocialLinks = () => {
 
 // Step 3: Add a click event listener to the mobile navigation toggle button
 mobileNavToggle.addEventListener("click", () => {
-  toggleSocialLinks();
+  if (window.location.pathname === "/") {
+    // Only hide the toolbar on the homepage
+    toggleSocialLinks();
+  }
 });
 
 // Step 4: Hide the social links toolbar on all pages except the home page
@@ -291,5 +296,4 @@ if (window.location.pathname === "/" && socialLinks) {
   });
 }
 
-  
 })();
