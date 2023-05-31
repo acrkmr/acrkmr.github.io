@@ -1,11 +1,3 @@
-/**
- * Template Name: iPortfolio
- * Updated: Mar 10 2023 with Bootstrap v5.2.3
- * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 (function () {
   "use strict";
 
@@ -102,7 +94,7 @@
   });
 
   /**
-   * Scroll with offset on links with a class name .scrollto
+   * Scrool with ofset on links with a class name .scrollto
    */
   on("click", ".scrollto", function (e) {
     if (select(this.hash)) {
@@ -120,7 +112,7 @@
   }, true);
 
   /**
-   * Scroll with offset on page load with hash links in the URL
+   * Scroll with ofset on page load with hash links in the url
    */
   window.addEventListener("load", () => {
     if (window.location.hash) {
@@ -262,21 +254,53 @@
    */
   new PureCounter();
 
-  /**
-   * Hide and show the .social-links-2 toolbar on mobile navigation toggle
-   */
+  // Step 1: Get the mobile navigation toggle button and the social links toolbar
   const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
   const socialLinks = document.querySelector(".social-links-2");
-  let isSocialLinksVisible = true;
 
-  mobileNavToggle.addEventListener("click", () => {
-    if (isSocialLinksVisible) {
-      socialLinks.style.opacity = 0;
-    } else {
-      setTimeout(() => {
-        socialLinks.style.opacity = 1;
-      }, 100);
+  let isSocialLinksVisible = false;
+  let isHomePage = window.location.pathname === "/";
+
+  if (isHomePage) {
+    socialLinks.style.opacity = 1;
+  } else {
+    socialLinks.style.opacity = 0;
+  }
+
+  // Step 2: Add scroll event listener to hide/show the social links toolbar
+  window.addEventListener("scroll", function () {
+    if (isHomePage && !isMobileNavActive()) {
+      if (window.scrollY > 0) {
+        if (isSocialLinksVisible) {
+          socialLinks.style.opacity = 0;
+          isSocialLinksVisible = false;
+        }
+      } else {
+        if (!isSocialLinksVisible) {
+          socialLinks.style.opacity = 1;
+          isSocialLinksVisible = true;
+        }
+      }
     }
-    isSocialLinksVisible = !isSocialLinksVisible;
   });
+
+  // Step 3: Add click event listener to the mobile navigation toggle button
+  mobileNavToggle.addEventListener("click", function () {
+    setTimeout(function () {
+      if (isHomePage) {
+        if (isMobileNavActive()) {
+          socialLinks.style.opacity = 0;
+          isSocialLinksVisible = false;
+        } else {
+          socialLinks.style.opacity = 1;
+          isSocialLinksVisible = true;
+        }
+      }
+    }, 100);
+  });
+
+  // Helper function to check if mobile navigation is active
+  function isMobileNavActive() {
+    return mobileNavToggle.classList.contains("bi-x");
+  }
 })();
