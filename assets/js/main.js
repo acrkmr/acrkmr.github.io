@@ -266,6 +266,9 @@
 (function () {
   "use strict";
 
+(function () {
+  "use strict";
+
   // Step 1: Get the mobile navigation toggle button and the social links toolbar
   const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
   const socialLinks = document.querySelector(".social-links-2");
@@ -310,4 +313,5 @@
     });
   }
 })();
+
 
