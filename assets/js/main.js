@@ -254,53 +254,35 @@
    */
   new PureCounter();
 
-  // Step 1: Get the mobile navigation toggle button and the social links toolbar
+  // Custom Code for Social Links Toolbar
   const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
   const socialLinks = document.querySelector(".social-links-2");
+  const isHomePage = window.location.pathname === "/";
 
-  let isSocialLinksVisible = false;
-  let isHomePage = window.location.pathname === "/";
+  let isSocialLinksVisible = isHomePage;
 
-  if (isHomePage) {
-    socialLinks.style.opacity = 1;
-  } else {
+  // Step 1: Hide the social links toolbar on all pages except the home page
+  if (!isHomePage) {
     socialLinks.style.opacity = 0;
+    isSocialLinksVisible = false;
   }
 
-  // Step 2: Add scroll event listener to hide/show the social links toolbar
-  window.addEventListener("scroll", function () {
-    if (isHomePage && !isMobileNavActive()) {
-      if (window.scrollY > 0) {
-        if (isSocialLinksVisible) {
-          socialLinks.style.opacity = 0;
-          isSocialLinksVisible = false;
-        }
-      } else {
-        if (!isSocialLinksVisible) {
-          socialLinks.style.opacity = 1;
-          isSocialLinksVisible = true;
-        }
+  // Step 2: Show/hide the social links toolbar based on the scroll position
+  if (isHomePage) {
+    window.addEventListener("scroll", function () {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 0 && isSocialLinksVisible) {
+        socialLinks.style.opacity = 0;
+        isSocialLinksVisible = false;
+      } else if (scrollPosition === 0 && !isSocialLinksVisible) {
+        socialLinks.style.opacity = 1;
+        isSocialLinksVisible = true;
       }
-    }
-  });
+    });
+  }
 
-  // Step 3: Add click event listener to the mobile navigation toggle button
-  mobileNavToggle.addEventListener("click", function () {
-    setTimeout(function () {
-      if (isHomePage) {
-        if (isMobileNavActive()) {
-          socialLinks.style.opacity = 0;
-          isSocialLinksVisible = false;
-        } else {
-          socialLinks.style.opacity = 1;
-          isSocialLinksVisible = true;
-        }
-      }
-    }, 100);
-  });
-
-  // Helper function to check if mobile navigation is active
-  function isMobileNavActive() {
-    return mobileNavToggle.classList.contains("bi-x");
+  // Step 3: Remove the social links toolbar on all pages except the home page
+  if (!isHomePage) {
+    socialLinks.remove();
   }
 })();
