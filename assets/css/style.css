@@ -127,14 +127,11 @@ h6 {
 .social-links-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 5%;
-  margin-bottom: 1.7%;
+  margin-top: 4.7%;
+  margin-bottom: 1.6%;
   margin-right: 21%;
 }
 
-.social-links-2 {
-  background-color: transparent;
-}
 
 .social-links-2 a {
   margin: 0 10px;
