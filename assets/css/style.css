@@ -297,9 +297,9 @@ h6 {
 .scroll-down-arrow {
   position: absolute;
   bottom: 30px;
-  right: 30px; /* Updated position */
-  width: 30px; /* Updated width */
-  height: 30px; /* Updated height */
+  right: 15px; /* Updated position */
+  width: 35px; /* Updated width */
+  height: 35px; /* Updated height */
   border: 2px solid #149ddd;
   border-radius: 50%;
   display: flex;
