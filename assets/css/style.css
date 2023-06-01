@@ -123,26 +123,42 @@ h6 {
 
 
 
-/* Hide the .social-links-2 toolbar on desktop screens */
+
+.social-links-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4%;
+  margin-right: 15%;
+}
+
+.social-links-2 {
+  background-color: transparent;
+}
+
+.social-links-2 a {
+  margin: 0 10px;
+  color: #149ddd;
+  text-decoration: none;
+}
+
+.social-links-2 a:hover {
+  color: #ff0000;
+}
+
+.social-links-2 i {
+  font-size: 24px;
+}
+
+/* Media query to hide social-links-2 on desktop */
 @media (min-width: 768px) {
-  .social-links-2 {
+  .social-links-container {
     display: none;
   }
 }
 
-/* Position the .social-links-2 toolbar on mobile screens */
-@media (max-width: 767px) {
-  .social-links-2 {
-    position: fixed;
-    top: 2%;
-    right: 13%;
-    z-index: 9999;
-  }
 
-  .social-links-2 a {
-    margin-right: 25px; /* Increase the margin to create more distance between icons */
-  }
-}
+
+
 
 
 
@@ -228,8 +244,8 @@ h6 {
  /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
-  right: 15px;
-  top: 0.7%;
+  right: 3.5%;
+  top: .8%;
   z-index: 9998;
   border: 0;
   font-size: 24px;
