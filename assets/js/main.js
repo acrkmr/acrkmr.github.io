@@ -130,9 +130,6 @@
     twitterLink.appendChild(twitterIcon);
     socialLinks2.appendChild(twitterLink);
 
-    // Append the social-links-2 element to the document body or any other desired element
-    document.body.appendChild(socialLinks2);
-
     /**
      * Scrool with ofset on links with a class name .scrollto
      */
