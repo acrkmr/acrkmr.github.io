@@ -298,8 +298,8 @@ h6 {
   position: absolute;
   bottom: 30px;
   right: 30px; /* Updated position */
-  width: 45px; /* Updated width */
-  height: 45px; /* Updated height */
+  width: 30px; /* Updated width */
+  height: 30px; /* Updated height */
   border: 2px solid #149ddd;
   border-radius: 50%;
   display: flex;
