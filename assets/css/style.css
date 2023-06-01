@@ -127,8 +127,9 @@ h6 {
 .social-links-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 4%;
-  margin-right: 15%;
+  margin-top: 5%;
+  margin-bottom: 1.7%;
+  margin-right: 21%;
 }
 
 .social-links-2 {
@@ -141,12 +142,9 @@ h6 {
   text-decoration: none;
 }
 
-.social-links-2 a:hover {
-  color: #ff0000;
-}
 
 .social-links-2 i {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 /* Media query to hide social-links-2 on desktop */
@@ -245,7 +243,7 @@ h6 {
 .mobile-nav-toggle {
   position: fixed;
   right: 3.5%;
-  top: .8%;
+  top: .7%;
   z-index: 9998;
   border: 0;
   font-size: 24px;
